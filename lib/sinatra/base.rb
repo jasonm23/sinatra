@@ -327,6 +327,36 @@ module Sinatra
       render :builder, template, options, locals
     end
 
+    #  Adding support for all Tilt enabled templates.
+
+    def str(template, options={}, locals={})
+      render :str, template, options, locals
+    end
+
+    def liquid(template, options={}, locals={})
+      render :liquid, template, options, locals
+    end
+
+    def markdown(template, options={}, locals={})
+      render :markdown, template, options, locals
+    end
+
+    def textile(template, options={}, locals={})
+      render :textile, template, options, locals
+    end
+
+    def mustache(template, options={}, locals={})
+      render :mustache, template, options, locals
+    end
+
+    def rdoc(template, options={}, locals={})
+      render :rdoc, template, options, locals
+    end
+
+    def coffee(template, options={}, locals={})
+      render :coffee, template, options, locals
+    end
+
   private
     def render(engine, data, options={}, locals={}, &block)
       # merge app-level options
