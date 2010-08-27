@@ -334,14 +334,17 @@ module Sinatra
     end
 
     def liquid(template, options={}, locals={})
+      options[:outvar] = '@_out_buf'
       render :liquid, template, options, locals
     end
 
     def markdown(template, options={}, locals={})
+      options[:outvar] = '@_out_buf'
       render :markdown, template, options, locals
     end
 
     def textile(template, options={}, locals={})
+      options[:outvar] = '@_out_buf'
       render :textile, template, options, locals
     end
 
@@ -353,7 +356,9 @@ module Sinatra
       render :rdoc, template, options, locals
     end
 
+    # layouts not applied to coffee.
     def coffee(template, options={}, locals={})
+      options[:layout] = false
       render :coffee, template, options, locals
     end
 
